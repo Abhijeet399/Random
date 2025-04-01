@@ -199,8 +199,8 @@ Gradient-weighted Class Activation Mapping (Grad-CAM) reveals:
 <div>
   
 <img src="https://github.com/Abhijeet399/Random/blob/main/Screenshot%20from%202025-04-01%2005-26-22.png" class="logo" width="1200"/>
-**Figure 1.** Neural activation heatmaps across RS ranges  
 </div>
+**Figure 1.** Neural activation heatmaps across RS ranges  
 ---
 
 ## Operational Implementation Framework
@@ -213,10 +213,15 @@ Gradient-weighted Class Activation Mapping (Grad-CAM) reveals:
 2. **Model Execution**
     - Parallelized polynomial and neural network predictions
     - Confidence intervals computed via:
-\$ CI = \hat{y} \pm t_{\alpha/2} \cdot RMSE \cdot \sqrt{1+\frac{1}{n}} \$
+$$
+CI = \hat{y} \pm t_{\alpha/2} \cdot RMSE \cdot \sqrt{1+\frac{1}{n}}
+$$
 3. **Scheduling Optimization**
     - Daily capacity planning using:
-\$ Demand_t = \sum_{i=1}^N \Phi\left(\frac{t-\hat{y}_i}{RMSE}\right) \$
+$$
+Demand_t = \sum_{i=1}^N \Phi\left(\frac{t-\hat{y}_i}{RMSE}\right)
+$$
+
 Where Φ is the normal CDF
 
 ---
