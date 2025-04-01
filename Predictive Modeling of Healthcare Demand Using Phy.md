@@ -198,7 +198,7 @@ Gradient-weighted Class Activation Mapping (Grad-CAM) reveals:
   
 <img src="https://github.com/Abhijeet399/Random/blob/main/Screenshot%20from%202025-04-01%2005-26-22.png" class="logo" width="1200"/>
 </div>
-**Figure 1:** Neural activation heatmaps across RS ranges  
+Figure 1: Neural activation heatmaps across RS ranges  
 
 ## Operational Implementation Framework
 
