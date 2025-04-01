@@ -291,7 +291,7 @@ $$
     - Incorporating temporal RS trajectories:
                          
 $$
-RS_t = \alphaRS_{t-1} + (1-\alpha)Observations_t
+RS_t = \alpha RS_{t-1} + (1-\alpha)Observations_t
 $$
 
 4. **Causal Interventional Analysis**
