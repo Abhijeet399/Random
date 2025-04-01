@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
-
 # Predictive Modeling of Healthcare Demand Using Physician-Assigned Risk Scores: A Comprehensive Methodological Analysis
 
 ---
@@ -282,7 +280,6 @@ Implementation recommendations:
 
 Future research must bridge the interpretability gap while maintaining neural networks' predictive advantages - a challenge requiring close collaboration between clinical experts and machine learning specialists. This study demonstrates that individualized risk-score forecasting represents a paradigm shift in healthcare operations management, potentially reducing no-show rates by 22% and emergency visits by 31% through precision scheduling[^2][^4].
 
-<div>⁂</div>
 
 [^1]: https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/45406599/f540471a-0c17-4583-8d68-b999ca1fd2d4/Neural_Net_Writeup.docx
 
