@@ -198,7 +198,7 @@ Gradient-weighted Class Activation Mapping (Grad-CAM) reveals:
 
 <div>
   
-<img src="[https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png](https://github.com/Abhijeet399/Random/blob/main/Screenshot%20from%202025-04-01%2005-26-22.png)" class="logo" width="120"/>
+<img src="https://github.com/Abhijeet399/Random/blob/main/Screenshot%20from%202025-04-01%2005-26-22.png" class="logo" width="1200"/>
 **Figure 1.** Neural activation heatmaps across RS ranges  
 </div>
 ---
