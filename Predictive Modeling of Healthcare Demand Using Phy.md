@@ -268,7 +268,12 @@ Where Φ is the normal CDF
 
 1. **Polynomial Extrapolation Risks**
     - Quartic model produces nonsensical predictions for RS>100:
-\$ \lim_{RS\to\infty} IAT = -\infty \$
+                
+$$
+\lim_{RS\to\infty} IAT = -\infty
+$$
+
+
 2. **Neural Interpretability Challenges**
     - SHAP analysis shows counterintuitive RS=55 explanations:
         - 37% weight on Layer 2 dropout masks
@@ -277,13 +282,25 @@ Where Φ is the normal CDF
 ### Multidisciplinary Research Agenda
 
 1. **Hybrid Model Architecture**
-\$ IAT = \underbrace{0.7\cdot f_{NN}(RS)}_{Neural Component} + \underbrace{0.3\cdot (0.00353RS^2)}_{Quadratic Stabilizer} \$
-2. **Longitudinal Risk Scoring**
+                   
+$$
+IAT = \underbrace{0.7\cdot f_{NN}(RS)}_{Neural Component} + \underbrace{0.3\cdot (0.00353RS^2)}_{Quadratic Stabilizer} 
+$$
+
+3. **Longitudinal Risk Scoring**
     - Incorporating temporal RS trajectories:
-\$ RS_t = \alphaRS_{t-1} + (1-\alpha)Observations_t \$
-3. **Causal Interventional Analysis**
+                         
+$$
+RS_t = \alphaRS_{t-1} + (1-\alpha)Observations_t
+$$
+
+4. **Causal Interventional Analysis**
     - Estimating IAT changes under hypothetical RS modifications:
-\$ \frac{\delta IAT}{\delta RS} = -0.6347 + 0.00706RS \$
+                               
+$$
+\frac{\delta IAT}{\delta RS} = -0.6347 + 0.00706RS
+$$
+
 
 ---
 
