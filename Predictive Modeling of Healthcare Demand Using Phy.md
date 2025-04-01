@@ -283,9 +283,10 @@ $$
 
 1. **Hybrid Model Architecture**
                             
-$$
+<script type="math/tex; mode=display">
 IAT = \underbrace{0.7\cdot f_{NN}(RS)}_{\text{Neural Component}} + \underbrace{0.3\cdot (0.00353RS^2)}_{\text{Quadratic Stabilizer}}
-$$
+</script>
+
 
 3. **Longitudinal Risk Scoring**
     - Incorporating temporal RS trajectories:
