@@ -283,9 +283,9 @@ $$
 
 1. **Hybrid Model Architecture**
                             
-<script type="math/tex; mode=display">
-IAT = \underbrace{0.7\cdot f_{NN}(RS)}_{\text{Neural Component}} + \underbrace{0.3\cdot (0.00353RS^2)}_{\text{Quadratic Stabilizer}}
-</script>
+![Equation](https://latex.codecogs.com/svg.latex?IAT%20%3D%20%5Cunderbrace%7B0.7%5Ccdot%20f_%7BNN%7D(RS)%7D_%7B%5Ctext%7BNeural%20Component%7D%7D%20%2B%20%5Cunderbrace%7B0.3%5Ccdot%20(0.00353RS%5E2)%7D_%7B%5Ctext%7BQuadratic%20Stabilizer%7D%7D)
+
+
 
 
 3. **Longitudinal Risk Scoring**
