@@ -168,9 +168,16 @@ $$
 The convex curve from Document 2 suggests:
 
 - Critical RS threshold at vertex:
-\$ RS^* = -\frac{b}{2a} = \frac{0.6347}{2(0.00353)} \approx 90.2 \$
+  
+$$
+RS^* = -\frac{b}{2a} = \frac{0.6347}{2(0.00353)} \approx 90.2
+$$
+
 - Maximum IAT prediction:
-\$ IAT_{max} = 33.985 - \frac{(0.6347)^2}{4(0.00353)} \approx 27.1 days \$
+    
+$$
+IAT_{max} = 33.985 - \frac{(0.6347)^2}{4(0.00353)} \approx 27.1 days
+$$
 
 **Cubic Inflection Interpretation**
 Document 3's cubic model shows:
