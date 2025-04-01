@@ -133,7 +133,6 @@ Performance metrics from 30-test samples:
 - Input Layer: 1 neuron (RS value)
 - Hidden Layers: {8,16,32,32,16,8} neurons with ReLU activation
 
-
 $$
 ReLU(x) = \max(0,x)
 $$
