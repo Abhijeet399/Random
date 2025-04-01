@@ -282,7 +282,7 @@ $$
 ### Multidisciplinary Research Agenda
 
 1. **Hybrid Model Architecture**
-                   
+                            
 $$
 IAT = \underbrace{0.7\cdot f_{NN}(RS)}_{\text{Neural Component}} + \underbrace{0.3\cdot (0.00353RS^2)}_{\text{Quadratic Stabilizer}}
 $$
