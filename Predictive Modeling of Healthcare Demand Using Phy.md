@@ -454,7 +454,7 @@ $$
 | **Polynomial Regression (Degree 2 - Quadratic)** | **0.4705**   | **7.18** | Captures non-linear risk effects             |
 | **Polynomial Regression (Degree 3 - Cubic)**     | **0.5091**   | **6.91** | Adds inflection point near RS ≈ 65           |
 | **Polynomial Regression (Degree 4 - Quartic)**   | **0.5622**   | **6.52** | Best among polynomial models                 |
-| Power Model                                      | 0.5326       | \~14.64 | Not competitive due to high RMSE²            |
+| Power Model                                      | 0.5326       | 14.65 | Not competitive due to high RMSE²            |
 | **Neural Network (6-layer)**                     | **0.62**     | **5.89** | Best performance overall with regularization |
 
 
