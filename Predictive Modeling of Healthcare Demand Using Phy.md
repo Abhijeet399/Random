@@ -338,9 +338,9 @@ Your methodology utilizes both Mean Squared Error (MSE) and Mean Absolute Error 
 
 *MSE (Quadratic Loss):*
 
-\[
+$$
 \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-\]
+$$
 
 -Heavily penalizes larger errors (due to squaring), making it sensitive to outliers.
 -Optimized for low bias when data is assumed to have Gaussian noise.
