@@ -330,6 +330,51 @@ Where Φ is the normal CDF
 
 </div>
 
+**Commentary on Error Function and Performance Measures**
+The study employs a comprehensive suite of error functions and performance metrics to evaluate model quality, capture clinical relevance, and quantify predictive reliability. This multi-pronged evaluation framework ensures that both statistical accuracy and operational interpretability are addressed.
+
+1. Error Functions Used
+Your methodology utilizes both Mean Squared Error (MSE) and Mean Absolute Error (MAE) as loss functions in the training and comparison of regression models:
+
+*MSE (Quadratic Loss):*
+
+\[
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+\]
+
+-Heavily penalizes larger errors (due to squaring), making it sensitive to outliers.
+-Optimized for low bias when data is assumed to have Gaussian noise.
+-Used in training neural networks and polynomial regression, emphasizing fit quality for high-risk patients (where prediction errors can be clinically consequential).
+
+*MAE (Linear Loss)*
+
+\[
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left| y_i - \hat{y}_i \right|
+\]
+
+
+-Treats all errors equally, making it robust to outliers.
+-Used in comparative baselines to evaluate performance under different error assumptions.
+-Particularly helpful in capturing typical deviation in clinical scheduling tasks.
+
+This dual-loss approach is well-justified given the asymmetric consequences of over- vs. underestimating interarrival times (IATs). For example, underestimating IATs may lead to idle clinical resources, whereas overestimates can result in missed care opportunities.
+
+2. Performance Measures Derived
+The study reports multiple performance metrics, each offering a different lens into model behavior:
+
+| Metric                                    | Description                                                          | Role in Evaluation                                                                                            |
+| ----------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **R² (Coefficient of Determination)**     | Proportion of variance explained by the model.                       | Measures **overall goodness of fit**. Neural model achieves R² = 0.62, outperforming polynomial counterparts. |
+| **RMSE (Root Mean Squared Error)**        | Square root of average squared errors.                               | Captures **scale-sensitive prediction accuracy**. Used to define **confidence intervals** for scheduling.     |
+| **Max Residual**                          | Largest absolute deviation in test set.                              | Highlights **worst-case performance**, relevant for stress-testing the model.                                 |
+| **MAPE (Mean Absolute Percentage Error)** | Mean error as percentage of actual values.                           | Used in **temporal validation** to compare across time windows.                                               |
+| **Theil’s U Statistic**                   | Scale-free measure of forecast accuracy relative to naïve benchmark. | Employed for **forecast efficiency analysis**.                                                                |
+| **Diebold-Mariano Test (p-value)**        | Statistical test to compare forecast accuracy between models.        | Supports **model selection** with significance assessment.                                                    |
+
+Together, these metrics provide a rich understanding of both average and extreme behavior, helping clinicians interpret confidence bounds and plan capacity accordingly.
+
+
+
 ### Clinical Scenario Testing
 
 **Case 1: RS=45 (Moderate Risk)**
