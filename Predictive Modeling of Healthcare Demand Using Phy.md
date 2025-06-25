@@ -211,7 +211,7 @@ This approach allowed us to identify an architecture that balanced capacity, gen
 
 The selection of a dropout probability of 0.05 in the six-layer neural network architecture reflects a strategic balance between regularization strength and model capacity retention, particularly suited for small but high-variance clinical datasets like the one used in this study (n = 148).
 
-1. The Rationale for Low Dropout (p = 0.05)
+1. The Rationale for Low Dropout (p = 0.05
 In general, dropout acts as a regularization mechanism by randomly "dropping" a fraction of neurons during training, preventing the model from overfitting to noise or idiosyncrasies in the training data. A typical dropout rate ranges from 0.2 to 0.5 in large-scale deep learning models; however, for small datasets, higher dropout rates can excessively cripple representational power and slow convergence.
 
 By opting for p = 0.05, the model:
@@ -348,9 +348,9 @@ $$
 
 *MAE (Linear Loss)*
 
-\[
+$$
 \text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left| y_i - \hat{y}_i \right|
-\]
+$$
 
 
 -Treats all errors equally, making it robust to outliers.
