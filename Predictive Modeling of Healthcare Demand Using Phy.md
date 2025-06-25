@@ -431,18 +431,30 @@ $$
 \frac{\delta IAT}{\delta RS} = -0.6347 + 0.00706RS
 $$
 
+## 📊 Model Performance Comparison Table ##
+
+| **Model**                                        | **R² Score** | **RMSE** | **Notes**                                    |
+| ------------------------------------------------ | ------------ | -------- | -------------------------------------------- |
+| Linear Regression (MAE Loss)                     | 0.38         | 9.56     | Lower sensitivity to outliers                |
+| Linear Regression (MSE Loss)                     | 0.41         | 9.16     | Slightly better than MAE version             |
+| **Polynomial Regression (Degree 2 - Quadratic)** | **0.4705**   | **7.18** | Captures non-linear risk effects             |
+| **Polynomial Regression (Degree 3 - Cubic)**     | **0.5091**   | **6.91** | Adds inflection point near RS ≈ 65           |
+| **Polynomial Regression (Degree 4 - Quartic)**   | **0.5622**   | **6.52** | Best among polynomial models                 |
+| Power Model                                      | 0.5326       | \~14.64 | Not competitive due to high RMSE²            |
+| **Neural Network (6-layer)**                     | **0.62**     | **5.89** | Best performance overall with regularization |
+
 
 ---
 
 ## Concluding Synthesis
 
-This rigorous methodological comparison establishes neural networks as superior predictors of psychiatric care utilization patterns (ΔR²=0.06 over quartic models, p<0.01)[^1][^2][^3][^4]. The stochastic regularization via dropout layers (p=0.05) proves particularly effective in modeling clinical uncertainty, reducing overfitting by 37% compared to standard architectures[^1].
+This comprehensive analysis evaluated multiple predictive modeling approaches to forecast patient interarrival times based on physician-assigned risk scores in geriatric psychiatric care. Among the models assessed, the six-layer neural network demonstrated superior performance, achieving the highest coefficient of determination (R² = 0.62) and the lowest root mean squared error (RMSE = 5.89). This indicates its enhanced capability to capture complex non-linear relationships and variability inherent in clinical risk stratification compared to traditional linear and polynomial regression models. While polynomial models (especially quartic) provided valuable intermediate performance and interpretability, their marginal gains plateaued relative to increased complexity. The neural network’s stochastic regularization and early stopping mechanisms further improved robustness and mitigated overfitting, solidifying its suitability for precision healthcare demand forecasting.
 
 Implementation recommendations:
 
-- **Phase 1**: Deploy quadratic model for clinician education (high interpretability)
-- **Phase 2**: Transition to neural network predictions with explainability dashboards
-- **Phase 3**: Integrate real-time risk score updates via wearable biomarker streams
+- **Phase 1:** Deploy the quadratic polynomial regression model initially to provide clinicians with interpretable and transparent risk-to-scheduling insights, fostering trust and clinical acceptance.
+- **Phase 2:** Transition to the neural network model in operational settings to leverage its superior predictive accuracy for real-time appointment scheduling and resource allocation.
+- **Phase 3:** Integrate continuous updates of risk scores from electronic health records and wearable biomarker streams to enable dynamic, individualized forecasting and adaptive scheduling.
 
 Future research must bridge the interpretability gap while maintaining neural networks' predictive advantages - a challenge requiring close collaboration between clinical experts and machine learning specialists. This study demonstrates that individualized risk-score forecasting represents a paradigm shift in healthcare operations management, potentially reducing no-show rates by 22% and emergency visits by 31% through precision scheduling[^2][^4].
 
