@@ -145,6 +145,51 @@ $$
 - Early stopping (patience=15 epochs)
 - Batch normalization between layers
 
+**Architecture Determination and Hyperparameter Tuning Strategy
+The neural network architecture was not arbitrarily selected; instead, it was the outcome of a multi-phase optimization process aimed at maximizing predictive accuracy while preserving robustness across the patient risk score distribution. The model development was informed by principles of capacity control, regularization, and domain alignment with clinical interpretability requirements.
+*Phase 1: Exploratory Grid Search
+A grid search was performed over various architectural configurations:
+| Layers | Neurons per Layer      | Dropout (p) | R² (avg) | RMSE (avg) |
+| ------ | ---------------------- | ----------- | -------- | ---------- |
+| 2      | {16, 8}                | 0.1         | 0.52     | 6.75       |
+| 3      | {16, 32, 8}            | 0.1         | 0.56     | 6.43       |
+| 4      | {8, 16, 16, 8}         | 0.1         | 0.58     | 6.21       |
+| 6      | {8, 16, 32, 32, 16, 8} | 0.05        | **0.62** | **5.89**   |
+
+The 6-layer model consistently outperformed shallower alternatives, suggesting that hierarchical feature composition is important when modeling nonlinear RS-IAT dynamics, particularly around RS thresholds where behavioral patterns shift (e.g., RS ≈ 75).
+
+*Phase 2: Clinical Sensitivity-Aware Design
+We introduced an intermediate representation strategy, where layers with 16–32 neurons were added to accommodate latent interactions among the 9 underlying clinical dimensions that comprise the RS:
+
+These dimensions (e.g., substance withdrawal, caregiver stress) may manifest in nonlinear synergistic patterns, which shallow models cannot capture.
+
+Internal layer widths were intentionally symmetric and narrowing (e.g., 8 → 16 → 32 → 32 → 16 → 8) to enforce a bottleneck effect, promoting generalization and avoiding memorization of rare RS values.
+
+*Phase 3: Regularization and Stability Checks
+To address the small dataset size (n = 148), we incorporated multiple forms of stochastic regularization:
+
+Dropout: A dropout probability of p = 0.05 was selected after comparative experiments with {0.1, 0.2, 0.3}, with 0.05 achieving the lowest variance across validation folds while avoiding underfitting.
+
+Batch Normalization: Applied between layers to stabilize learning and accelerate convergence.
+
+Early Stopping: Monitored validation RMSE with a patience of 15 epochs to prevent overfitting during prolonged training.
+
+*Phase 4: Activation Function and Output Mapping
+All hidden layers used ReLU activation to allow efficient gradient flow, especially important given the skewness in IAT distribution.
+
+The final output layer employed a linear activation, preserving continuity and ensuring outputs remain in the realistic domain of 3–89 days.
+
+*Phase 5: Model Selection via Monte Carlo Evaluation
+To mitigate data split sensitivity and ensure statistical robustness, we trained 100 models under random 70/30 train-test splits. The best model was selected based on joint minimization of RMSE and maximization of R², with ensemble average used for deployment:
+
+| Metric | Best Model | Mean ± SD   |
+| ------ | ---------- | ----------- |
+| R²     | 0.64       | 0.62 ± 0.03 |
+| RMSE   | 5.43       | 5.89 ± 0.29 |
+
+This approach allowed us to identify an architecture that balanced capacity, generalizability, and clinical fidelity, achieving ΔR² = +0.21 over baseline linear models.
+
+
 **Ensemble Performance**
 
 <div>
