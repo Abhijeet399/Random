@@ -239,6 +239,20 @@ Additionally, applying dropout at this rate aligns with its Bayesian approximati
 5. Recommendation
 The current choice (p = 0.05) appears well-calibrated for your architecture and data size. For future extensions with larger or more complex datasets, a dropout grid search (e.g., p ∈ [0.05, 0.3]) or adaptive dropout methods (e.g., concrete dropout) could further optimize performance without sacrificing uncertainty modeling.
 
+4. Power Model
+
+The Power Model was also evaluated using the form:
+
+with the fitted parameters:
+
+Performance metrics for the Power Model on the test set are as follows:
+-Mean Squared Error (MSE): 214.33
+-Coefficient of Determination (𝑅^2): 0.533
+
+While the Power Model captures certain non-linear characteristics between risk score (RS) and interarrival time (IAT), its performance, indicated by a relatively high MSE and moderate 𝑅2, is inferior to both polynomial regression and neural network approaches. This suggests limited suitability for precise healthcare demand forecasting in this context.
+
+
+
 </div>
 ---
 
