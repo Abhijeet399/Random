@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
-
 # Predictive Modeling of Healthcare Demand Using Physician-Assigned Risk Scores: A Comprehensive Methodological Analysis
 
 This study presents an exhaustive evaluation of predictive modeling techniques for forecasting patient interarrival times (IAT) using physician-assigned risk scores (RS) in geriatric psychiatric care. By systematically comparing four modeling paradigms - linear regression, polynomial regression, absolute deviation minimization, and neural networks - we establish that a six-layer neural architecture with stochastic regularization achieves superior predictive accuracy (R²=0.62, RMSE=5.89) while maintaining clinical relevance. The analysis synthesizes methodological insights from 148 patient encounters to create an operational framework for individual-centric healthcare demand forecasting.
