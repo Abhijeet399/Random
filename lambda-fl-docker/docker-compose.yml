@@ -1,0 +1,53 @@
+services:
+  zookeeper:
+    image: bitnami/zookeeper:3.8
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: bitnami/kafka:3.4
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+
+  ray-head:
+    build:
+      context: .
+      dockerfile: ./ray/Dockerfile
+    container_name: ray-head
+    environment:
+      - ROLE=head
+      - KAFKA_BOOTSTRAP=kafka:9092
+    depends_on:
+      - kafka
+    ports:
+      - "8265:8265"   # Ray dashboard
+
+  ray-worker:
+    build:
+      context: .
+      dockerfile: ./ray/Dockerfile
+    environment:
+      - ROLE=worker
+      - KAFKA_BOOTSTRAP=kafka:9092
+    depends_on:
+      - ray-head
+
+  client:
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    environment:
+      - KAFKA_BOOTSTRAP=kafka:9092
+    depends_on:
+      - kafka
+    # scale this service to simulate many clients via `docker compose up --scale client=N`
